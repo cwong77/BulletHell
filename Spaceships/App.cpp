@@ -5,6 +5,8 @@ using namespace std;
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
+
+	jukebox.load();
     
     // This is our ship
     r = new ucm::Rectangle(0.0f, 0.5f);
@@ -90,6 +92,19 @@ void App::keyPress(unsigned char key) {
         // Increment missle counter
         counter++;
     }
+
+	//music player control
+	else if (key == 'p') {	//play or pause
+		if (!jukebox.isPlaying()) {	//if not playing, then start playing
+			jukebox.play("../Sound/cYsmix - Escapism - 02 House With Legs.wav");
+		}
+		else
+			jukebox.play("NULL");
+	}
+	else if (key == 'n') {
+		printf("next\n");
+		jukebox.next();
+	}
 }
 
 void App::idle(){

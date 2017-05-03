@@ -5,10 +5,15 @@
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Triangle.h"
+#include "Jukebox.h"
+#include <vector>
 
 class App: public GlutApp {
     // Maintain app state here
-    
+
+	//music player and friends
+	Jukebox jukebox;
+
 	ucm::Rectangle* r;
     Circle* c;
     
